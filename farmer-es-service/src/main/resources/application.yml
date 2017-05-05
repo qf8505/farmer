@@ -1,0 +1,18 @@
+server:
+  port: 8070                    # 指定该Eureka实例的端口
+spring:
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: es.qf.com
+      local: false
+      repositories:
+        enabled: true
+eureka:
+  instance:
+    hostname: discovery         # 指定该Eureka实例的主机名
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

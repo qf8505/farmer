@@ -1,0 +1,29 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: farmer-workflow-service    # 项目名称尽量用小写
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    datasource: MYSQL
+    hibernate:
+      ddl-auto: update
+  datasource:                           # 指定数据源
+    url: jdbc:mysql://172.31.7.1:3306/activiti-spring-boot?characterEncoding=UTF-8
+    username: hive
+    password: hive
+    driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true

@@ -1,10 +1,10 @@
 server:
-  port: 8070                    # 指定该Eureka实例的端口
+  port: 8070                    
 spring:
   data:
     elasticsearch:
-      cluster-name: elasticsearch
-      cluster-nodes: es.qf.com
+      cluster-name: qf
+      cluster-nodes: 172.31.7.1:9300
       local: false
       repositories:
         enabled: true
@@ -15,4 +15,4 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/

@@ -16,8 +16,7 @@ public class EslServiceImpl implements EslService{
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(EslServiceImpl.class);
 
     @Override
-    public Cliente findCliente(String id)
-    {
+    public Cliente findCliente(String id){
 
         Cliente cliente = clienteDao.findOne(id);
         LOG.info(" get cliente by id {} is {}", id, cliente);

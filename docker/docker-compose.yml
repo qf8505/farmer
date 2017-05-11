@@ -27,7 +27,7 @@ gateway:
    - neo4j
 user:
   image: qf/farmer-user-service
-  links:
+  links: 
    - eureka
    - configserver
 workflow:

@@ -12,6 +12,8 @@ turbine:
   # 2. 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default
   # 3. 当clusterNameExpression: metadata['cluster']时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC
 eureka:
+  instance:
+    hostname: eureka         # 指定该Eureka实例的主机名
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://user:user@${eureka.instance.hostname}:6781/eureka/

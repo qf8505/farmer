@@ -10,9 +10,9 @@ spring:
         enabled: true
 eureka:
   instance:
-    hostname: discovery         # 指定该Eureka实例的主机名
+    hostname: eureka         # 指定该Eureka实例的主机名
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/

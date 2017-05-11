@@ -5,7 +5,7 @@
     <artifactId>farmer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>farmer-api-gateway</artifactId>
+  <artifactId>farmer-gateway-server</artifactId>
 
 	<dependencies>
 		<dependency>

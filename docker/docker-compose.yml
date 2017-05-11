@@ -1,0 +1,56 @@
+hystrix:
+  image: qf/farmer-hystrix-dashboard
+  ports:
+   - "8010:8010"
+  links:
+   - gateway
+   - eureka
+eureka:
+  image: qf/farmer-eureka-server
+  ports:
+   - "8761:8761"
+configserver:
+  image: qf/farmer-config-server
+  ports:
+   - "8040:8040"
+  links:
+   - eureka
+gateway:
+  image: qf/farmer-gateway-server
+  ports:
+   - "8050:8050"
+  links:
+   - eureka
+   - configserver
+   - user
+   - workflow
+   - neo4j
+user:
+  image: qf/farmer-user-service
+  links:
+   - eureka
+   - configserver
+workflow:
+  image: qf/farmer-workflow-service
+  links:
+   - eureka
+   - configserver
+neo4j:
+  image: qf/farmer-neo4j-server
+  links:
+   - eureka
+   - configserver
+ui:
+  image: qf/farmer-ui
+  ports:
+     - "8080:8080"
+  links:
+   - eureka
+   - configserver
+webim:
+  image: qf/farmer-webim
+  ports:
+     - "8081:8081"
+  links:
+   - eureka
+   - configserver

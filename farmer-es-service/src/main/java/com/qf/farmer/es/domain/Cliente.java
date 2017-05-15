@@ -2,6 +2,8 @@ package com.qf.farmer.es.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.GeoPointField;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
 /**
  * the bean of customer
@@ -33,6 +35,9 @@ public class Cliente
     private String city;
 
     private String state;
+    
+    @GeoPointField
+    private GeoPoint location;
 
     public String getId()
     {
@@ -153,8 +158,16 @@ public class Cliente
     {
         this.state = state;
     }
+    
+    public GeoPoint getLocation() {
+		return location;
+	}
 
-    @Override
+	public void setLocation(GeoPoint location) {
+		this.location = location;
+	}
+
+	@Override
     public String toString()
     {
         return "Cliente{" + "id='" + id + '\'' + ", account_number=" + account_number + ", balance=" + balance + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", age=" + age + ", gender='" + gender + '\'' + ", address='" + address + '\'' + ", employer='" + employer + '\'' + ", email='" + email + '\'' + ", city='" + city + '\'' + ", state='" + state + '\'' + '}';

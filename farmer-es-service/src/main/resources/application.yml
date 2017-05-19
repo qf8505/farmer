@@ -3,8 +3,8 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-name: qf
-      cluster-nodes: 172.31.7.1:9300
+      cluster-name: ${cluster.name}
+      cluster-nodes: ${cluster.nodes}
       local: false
       repositories:
         enabled: true

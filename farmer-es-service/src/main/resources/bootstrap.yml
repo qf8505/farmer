@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: farmer
+  cloud:
+    config:
+      uri: http://localhost:8040/
+      profile: es
+      label: master
+encrypt:
+  failOnError: false

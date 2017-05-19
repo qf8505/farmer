@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       uri: http://farmer-config:8040/
-      profile: es
+      profile: workflow
       label: master
 encrypt:
   failOnError: false

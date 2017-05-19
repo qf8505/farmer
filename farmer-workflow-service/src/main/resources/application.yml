@@ -6,14 +6,14 @@ spring:
   jpa:
     generate-ddl: false
     show-sql: true
-    datasource: MYSQL
+    datasource: ${db.datasource}
     hibernate:
       ddl-auto: update
   datasource:                           # 指定数据源
-    url: jdbc:mysql://172.31.7.1:3306/activiti-spring-boot?characterEncoding=UTF-8
-    username: hive
-    password: hive
-    driver-class-name: com.mysql.jdbc.Driver
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: ${db.driver}
 logging:
   level:
     root: INFO

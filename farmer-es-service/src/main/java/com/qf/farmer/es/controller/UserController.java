@@ -11,7 +11,6 @@ import com.qf.farmer.es.domain.User;
 import com.qf.farmer.es.service.UserService;
 
 @RestController
-@RequestMapping(value = "/es/")
 public class UserController{
     @Autowired
     private UserService userService;

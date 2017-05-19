@@ -1,24 +1,8 @@
 server:
   port: 8090
 spring:
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    datasource: ${db.datasource}
-    hibernate:
-      ddl-auto: update
-  datasource:                           # 指定数据源
-    url: ${db.url}
-    username: ${db.username}
-    password: ${db.password}
-    driver-class-name: ${db.driver}
-logging:
-  level:
-    root: INFO
-    org.hibernate: INFO
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.itmuch.youran.persistence: ERROR
+  application:
+    name: farmer-workflow-service
 eureka:
   client:
     serviceUrl:

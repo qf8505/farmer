@@ -1,18 +1,9 @@
 server:
   port: 8070                    
-spring:
-  data:
-    elasticsearch:
-      cluster-name: ${cluster.name}
-      cluster-nodes: ${cluster.nodes}
-      local: false
-      repositories:
-        enabled: true
 eureka:
   instance:
     hostname: eureka         # 指定该Eureka实例的主机名
+    preferIpAddress: true
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:user@localhost:8761/eureka/

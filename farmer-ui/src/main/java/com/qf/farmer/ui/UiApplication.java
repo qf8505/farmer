@@ -17,6 +17,8 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoT
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -42,6 +44,8 @@ import org.springframework.web.filter.CompositeFilter;
 @RestController
 @EnableOAuth2Client
 @EnableAuthorizationServer
+@EnableDiscoveryClient
+@EnableFeignClients
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class UiApplication extends WebSecurityConfigurerAdapter {
 

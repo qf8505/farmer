@@ -43,7 +43,7 @@ import org.springframework.web.filter.CompositeFilter;
 @EnableOAuth2Client
 @EnableAuthorizationServer
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-public class FarmerApplication extends WebSecurityConfigurerAdapter {
+public class UiApplication extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	OAuth2ClientContext oauth2ClientContext;
@@ -79,7 +79,7 @@ public class FarmerApplication extends WebSecurityConfigurerAdapter {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(FarmerApplication.class, args);
+		SpringApplication.run(UiApplication.class, args);
 	}
 
 	@Bean

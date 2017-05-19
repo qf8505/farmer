@@ -1,8 +1,6 @@
 server:
   port: 8090
 spring:
-  application:
-    name: farmer-workflow-service    # 项目名称尽量用小写
   jpa:
     generate-ddl: false
     show-sql: true

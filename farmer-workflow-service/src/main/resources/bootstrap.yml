@@ -1,10 +1,10 @@
 spring:
   application:
-    name: farmer
+    name: farmer-workflow-service
   cloud:
     config:
       uri: http://config-server:8040/
-      profile: workflow
+      profile: dev
       label: master
 encrypt:
   failOnError: false

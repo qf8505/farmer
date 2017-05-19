@@ -3,7 +3,7 @@ spring:
     name: farmer
   cloud:
     config:
-      uri: http://farmer-config:8040
+      uri: http://config-server:8040/
       profile: ui
       label: master
 encrypt:

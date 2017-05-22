@@ -62,8 +62,10 @@ public class UiApplication extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+		//url包含farmer不经过登录验证
+		http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**","/user/**","/index/**","/plugin/**").permitAll().anyRequest()
 				.authenticated().and().exceptionHandling()
+				//指定没有登录后跳转的地址
 				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/")).and().logout()
 				.logoutSuccessUrl("/").permitAll().and().csrf()
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()

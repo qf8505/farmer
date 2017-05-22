@@ -9,7 +9,10 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:                           # 指定数据源
-    platform: h2                        # 指定数据源类型
+    url: ${jpa.datasource.url}
+    username: ${jpa.datasource.username}
+    password: ${jpa.datasource.password}
+    platform: ${jpa.datasource.platform}                        # 指定数据源类型
     schema: classpath:schema.sql        # 指定h2数据库的建表脚本
     data: classpath:data.sql            # 指定h2数据库的insert脚本
 logging:

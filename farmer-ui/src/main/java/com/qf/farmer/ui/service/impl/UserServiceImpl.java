@@ -26,4 +26,9 @@ public class UserServiceImpl implements UserService {
 		return userDbClient.register(user);
 	}
 
+	@Override
+	public User login(User user) {
+		return userDbClient.login(user);
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qf.farmer.ui.domain.User;
+import com.qf.farmer.ui.util.BusinessErrorDecoder;
 
 /**
  * 访问数据库服务客户端
@@ -14,7 +15,7 @@ import com.qf.farmer.ui.domain.User;
  * @author qinfei
  *
  */
-@FeignClient(name = "farmer-user-service")
+@FeignClient(name = "farmer-user-service",configuration=BusinessErrorDecoder.class)
 public interface UserDbClient {
 
 	/**
@@ -25,4 +26,13 @@ public interface UserDbClient {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
 	public User register(@RequestBody User user);
+	/**
+	 * 用户登录
+	 * @param userName
+	 * @param passWord
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@ResponseBody
+	public User login(@RequestBody User user);
 }

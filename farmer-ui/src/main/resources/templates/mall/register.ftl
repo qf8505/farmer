@@ -60,7 +60,7 @@
 										<div class="am-cf">
 											<input type="submit" name="" id="submitEmail" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 										</div>
-
+										<font color="#FF0000">${msg!}</font> 
 								</div>
 
 								<div class="am-tab-panel">
@@ -110,5 +110,5 @@
 			
 		<#include "foot.ftl"/>
 	</body>
-</html>
 <script src="../plugin/farmer/js/register.js"></script>
+</html>

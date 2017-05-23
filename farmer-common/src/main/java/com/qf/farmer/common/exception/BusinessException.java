@@ -1,5 +1,10 @@
-package com.qf.farmer.ui.util;
+package com.qf.farmer.common.exception;
 
+/**
+ * 统一异常处理基类
+ * @author qinfei
+ *
+ */
 public class BusinessException extends RuntimeException {
 
 	/**

@@ -7,4 +7,6 @@ public interface UserService {
 	User findUser(String userId);
 	
 	User register(User user);
+	
+	User login(User user);
 }

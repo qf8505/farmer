@@ -107,12 +107,19 @@ public class UiApplication extends WebSecurityConfigurerAdapter {
 	public ClientResources facebook() {
 		return new ClientResources();
 	}
+	
+	@Bean
+	@ConfigurationProperties("weibo")
+	public ClientResources weibo() {
+		return new ClientResources();
+	}
 
 	private Filter ssoFilter() {
 		CompositeFilter filter = new CompositeFilter();
 		List<Filter> filters = new ArrayList<>();
 		filters.add(ssoFilter(facebook(), "/login/facebook"));
 		filters.add(ssoFilter(github(), "/login/github"));
+		filters.add(ssoFilter(weibo(), "/login/weibo"));
 		filter.setFilters(filters);
 		return filter;
 	}

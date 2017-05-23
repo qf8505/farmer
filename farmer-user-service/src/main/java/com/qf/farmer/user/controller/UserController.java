@@ -2,9 +2,11 @@ package com.qf.farmer.user.controller;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +36,7 @@ public class UserController {
 	 */
 	@GetMapping("/{id}")
 	public User findById(@PathVariable Long id) {
-		User findOne = this.userService.findOne(id);
+		User findOne = this.userService.findUser(id);
 		return findOne;
 	}
 
@@ -46,9 +48,16 @@ public class UserController {
 	 */
 	@PostMapping("/register")
 	public User register(@RequestBody User user) {
-		List<User> list=userService.findAll();
-		System.out.println(list);
-		return userService.save(user);
+		return userService.saveUser(user);
+	}
+	/**
+	 * 用户登录
+	 * @param user
+	 * @return
+	 */
+	@PostMapping("/login")
+	public User login(@RequestBody User user) {
+		return userService.login(user.getsUserName(),user.getPassWord());
 	}
 
 	/**

@@ -1,11 +1,12 @@
 package com.qf.farmer.user.service;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import com.qf.farmer.user.domain.User;
 
-@Repository
-public interface UserService extends JpaRepository<User, Long>{
+public interface UserService{
 
+	User saveUser(User user);
+	
+	User findUser(long id);
+	
+	User login(String userName,String passWord);
 }

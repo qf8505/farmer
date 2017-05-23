@@ -10,14 +10,16 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-		<link rel="stylesheet" href="../plugin/AmazeUI-2.4.2/assets/css/amazeui.css" />
+		<link rel="stylesheet" href="../plugin/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
 		<link href="../plugin/farmer/css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="../plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="../plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 	</head>
 
 	<body>
 
 		<div class="login-boxtitle">
-			<a href="home.html"><img alt="logo" src="../plugin/farmer/images/logobig.png" /></a>
+			<a href="/index/mall"><img alt="logo" src="../plugin/farmer/images/logobig.png" /></a>
 		</div>
 
 		<div class="login-banner">
@@ -30,14 +32,15 @@
 							<div class="clear"></div>
 						
 						<div class="login-form">
-						  <form>
+						  <form method="post" id="loginform" data-am-validator>
+						  <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
-								    <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+								    <input type="text" name="userName" id="user" placeholder="邮箱/手机/用户名" minlength="3" required>
                  </div>
                  <div class="user-pass">
 								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="password" placeholder="请输入密码">
+								    <input type="password" name="passWord" id="password" placeholder="请输入密码" minlength="6" required>
                  </div>
               </form>
            </div>
@@ -45,11 +48,11 @@
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 								<a href="#" class="am-fr">忘记密码</a>
-								<a href="register" class="zcnext am-fr am-btn-default">注册</a>
+								<a href="/index/register" class="zcnext am-fr am-btn-default">注册</a>
 								<br />
             </div>
 								<div class="am-cf">
-									<input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
+									<input type="submit" id="submitLogin" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
 								</div>
 						<div class="partner">		
 								<h3>合作账号</h3>
@@ -59,7 +62,7 @@
 								<li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
 							</div>
 						</div>	
-
+<font color="#FF0000">${msg!}</font> 
 				</div>
 			</div>
 		</div>
@@ -67,5 +70,5 @@
 
 		<#include "foot.ftl"/>
 	</body>
-
+<script src="../plugin/farmer/js/login.js"></script>
 </html>

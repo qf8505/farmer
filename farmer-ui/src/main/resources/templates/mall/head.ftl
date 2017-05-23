@@ -3,8 +3,12 @@
 	<ul class="message-l">
 		<div class="topMessage">
 			<div class="menu-hd">
+				<#if user??>
+				${user.userName!}&nbsp;&nbsp;<a href="/index/loginOut" target="_top" class="h">退出</a>
+				<#else>
 				<a href="/index/login" target="_top" class="h">亲，请登录</a>
 				<a href="/index/register" target="_top">免费注册</a>
+				</#if>
 			</div>
 		</div>
 	</ul>

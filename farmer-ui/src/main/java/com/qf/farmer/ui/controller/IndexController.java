@@ -1,5 +1,7 @@
 package com.qf.farmer.ui.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,5 +33,14 @@ public class IndexController {
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(){
 		return "mall/register";
+	}
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	@RequestMapping(value = "loginOut", method = RequestMethod.GET)
+	public String loginOut(HttpServletRequest request){
+		request.getSession().removeAttribute("user");
+		return "redirect:/index/mall";
 	}
 }

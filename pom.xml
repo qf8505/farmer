@@ -29,6 +29,8 @@
 		<module>farmer-redis-server</module>
 		<module>farmer-md-service</module>
 		<module>farmer-webim</module>
+		<module>farmer-common</module>
+		<module>farmer-store-service</module>
 	</modules>
 	<!-- 使用最新的spring-boot版本 -->
 	<parent>
@@ -65,6 +67,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qf.farmer</groupId>
+			<artifactId>farmer-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

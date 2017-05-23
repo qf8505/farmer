@@ -1,2 +1,2 @@
 drop table  if exists user;
-create table user (id bigint NOT NULL auto_increment, user_name varchar(5),pass_word varchar(50),email varchar(100),phone varchar(20),source varchar(10),s_user_name varchar(100),user_type varchar(50),add_ress varchar(100), age int default 0,sex int default 0, primary key (id));
+create table user (id bigint NOT NULL auto_increment, user_name varchar(50),pass_word varchar(50),email varchar(100),phone varchar(20),source varchar(10),s_user_name varchar(100),user_type varchar(50),add_ress varchar(100), age int default 0,sex int default 0, primary key (id));

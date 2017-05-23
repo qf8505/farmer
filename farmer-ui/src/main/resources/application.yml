@@ -42,6 +42,24 @@ github:
     clientAuthenticationScheme: form
   resource:
     userInfoUri: https://api.github.com/user
+weibo:
+  client:
+    clientId: 2996789043
+    clientSecret: f6d834fa36d65153570e1bb6a09d0e3d
+    accessTokenUri: http://open.weibo.com/wiki/Oauth2/access_token
+    userAuthorizationUri: https://api.weibo.com/oauth2/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: http://open.weibo.com/wiki/Oauth2/get_token_info
+weixin:
+  client:
+    clientId: wx514447aa713f8cf4
+    clientSecret: 41131b481225d2b3494e9cf751888d78
+    accessTokenUri: https://api.weixin.qq.com/sns/oauth2/access_token
+    userAuthorizationUri: https://open.weixin.qq.com/connect/qrconnect
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: http://open.weixin.qq.com/oauth2/get_token_info
 
 logging:
   level:

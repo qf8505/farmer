@@ -1,0 +1,27 @@
+server:
+  port: 9999
+  contextPath: /auth
+security:
+  user:
+    password: qinfei
+  oauth2:
+    client:
+      client-id: farmer
+      client-secret: qf
+      scope: read,write
+      auto-approve-scopes: '.*'
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:  
+    url: jdbc:mysql://172.31.7.1:3306/test
+    username: hive
+    password: hive
+    platform: mysql
+
+logging:
+  level:
+    org.springframework.security: DEBUG

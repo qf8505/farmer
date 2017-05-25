@@ -10,6 +10,7 @@ import com.qf.farmer.common.exception.BusinessException;
 import com.qf.farmer.user.domain.User;
 import com.qf.farmer.user.repository.UserRepository;
 import com.qf.farmer.user.service.UserService;
+import com.qf.farmer.user.util.PasswordEncoderUtil;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -35,6 +36,7 @@ public class UserServiceImpl implements UserService {
 		}else{
 			throw new BusinessException("没有找到注册账号");
 		}
+		user.setPassWord(PasswordEncoderUtil.encode(user.getPassWord()));
 		return userRepository.save(user);
 	}
 

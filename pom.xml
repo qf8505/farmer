@@ -31,6 +31,7 @@
 		<module>farmer-webim</module>
 		<module>farmer-common</module>
 		<module>farmer-store-service</module>
+		<module>farmer-oauth</module>
 	</modules>
 	<!-- 使用最新的spring-boot版本 -->
 	<parent>

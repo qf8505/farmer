@@ -17,11 +17,25 @@ ribbon:
 security:
   oauth2:
     client:
-      client-id: acme
-      client-secret: acmesecret
-      scope: read,write
-      auto-approve-scopes: '.*'
+      accessTokenUri: http://localhost:9999/auth/oauth/token
+      userAuthorizationUri: http://localhost:9999/auth/oauth/authorize
+      clientId: farmer
+      clientSecret: qf
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDErWocyyhV57s8ZkKgBHeGkPBP+cifTDfGOmFjOOIxJCCOituvAKhfXvfsbQzZnc5YvszbNd8gEHK7BSWW9ON7WtHI4pExhbcEN4IeA/L+w6fkt8RR7wd5gprPEShIimazyxIiJyrhSK6ohVxL/oTOXKK5gt9z4XnTxh4/k82WGwIDAQAB
+          -----END PUBLIC KEY-----
 
+farmer:
+  client:
+    accessTokenUri: http://localhost:9999/auth/oauth/token
+    userAuthorizationUri: http://localhost:9999/auth/oauth/authorize
+    clientId: farmer
+    clientSecret: qf
+  resource:
+    userInfoUri: http://localhost:9999/auth/user
 facebook:
   client:
     clientId: 930719640364588
@@ -60,6 +74,15 @@ weixin:
     clientAuthenticationScheme: form
   resource:
     userInfoUri: http://open.weixin.qq.com/oauth2/get_token_info
+baidu:
+  client:
+    clientId: ccefgEUkoIg9OQ67Bwcz7PeL
+    clientSecret: kmSGXB6K2sYoABHiuwdi2lQSutxxmGF6
+    accessTokenUri: https://openapi.baidu.com/oauth/2.0/token
+    userAuthorizationUri: http://openapi.baidu.com/oauth/2.0/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://openapi.baidu.com/rest/2.0/passport/users/getInfo
 
 logging:
   level:

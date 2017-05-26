@@ -1,0 +1,16 @@
+server:
+  port: 9998
+  contextPath: /resource
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    
+security:
+  oauth2:
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDErWocyyhV57s8ZkKgBHeGkPBP+cifTDfGOmFjOOIxJCCOituvAKhfXvfsbQzZnc5YvszbNd8gEHK7BSWW9ON7WtHI4pExhbcEN4IeA/L+w6fkt8RR7wd5gprPEShIimazyxIiJyrhSK6ohVxL/oTOXKK5gt9z4XnTxh4/k82WGwIDAQAB
+          -----END PUBLIC KEY-----

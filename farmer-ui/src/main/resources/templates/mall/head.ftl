@@ -2,12 +2,11 @@
 <div class="am-container header">
 	<ul class="message-l">
 		<div class="topMessage">
-			<div class="menu-hd">
+			<div class="menu-hd" id="user-menu-hd">
 				<#if user??>
-				${user.userName!}&nbsp;&nbsp;<a href="/index/loginOut" target="_top" class="h">退出</a>
+				${user.userName!}&nbsp;&nbsp;<a href="#" onclick="$.logout({url:'logout?${_csrf.parameterName}=${_csrf.token}'})" target="_top" class="h">退出</a>
 				<#else>
-				<a href="/index/login" target="_top" class="h">亲，请登录</a>
-				<a href="/index/register" target="_top">免费注册</a>
+				<a href="/login" target="_top" class="h">亲，请登录</a>&nbsp;&nbsp;<a href="/register" target="_top">免费注册</a>
 				</#if>
 			</div>
 		</div>
@@ -26,3 +25,4 @@
 			<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 	</ul>
 </div>
+<script src="../plugin/farmer/js/mall.js"></script>

@@ -9,22 +9,22 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-
+		<#assign ctx="${springMacroRequestContext.contextPath}">
 		<link rel="stylesheet" href="plugin/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
-		<link href="plugin/farmer/css/dlstyle.css" rel="stylesheet" type="text/css">
-		<script src="plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link href="${ctx!}/plugin/farmer/css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="${ctx!}/plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="${ctx!}/plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 	</head>
 
 	<body>
 
 		<div class="login-boxtitle">
-			<a href="/index/mall"><img alt="logo" src="plugin/farmer/images/logobig.png" /></a>
+			<a href="${uipath!}/index/mall"><img alt="logo" src="${ctx!}/plugin/farmer/images/logobig.png" /></a>
 		</div>
 
 		<div class="login-banner">
 			<div class="login-main">
-				<div class="login-banner-bg"><span></span><img src="plugin/farmer/images/big.jpg" /></div>
+				<div class="login-banner-bg"><span></span><img src="${ctx!}/plugin/farmer/images/big.jpg" /></div>
 				<div class="login-box">
 
 							<h3 class="title">登录商城</h3>
@@ -32,15 +32,15 @@
 							<div class="clear"></div>
 						
 						<div class="login-form">
-						  <form method="post" id="login" role="form" data-am-validator>
+						  <form method="post" id="loginform" role="form" data-am-validator>
 						  <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
-								    <input type="text" name="userName" id="user" placeholder="邮箱/手机/用户名" minlength="3" required>
+								    <input type="text" name="username" id="username" placeholder="邮箱/手机/用户名" minlength="3" required>
                  </div>
                  <div class="user-pass">
 								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="passWord" id="password" placeholder="请输入密码" minlength="6" required>
+								    <input type="password" name="password" id="password" placeholder="请输入密码" minlength="2" required>
                  </div>
               </form>
            </div>
@@ -48,7 +48,7 @@
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 								<a href="#" class="am-fr">忘记密码</a>
-								<a href="/index/register" class="zcnext am-fr am-btn-default">注册</a>
+								<a href="${uipath!}/index/register" class="zcnext am-fr am-btn-default">注册</a>
 								<br />
             </div>
 								<div class="am-cf">
@@ -70,4 +70,5 @@
 
 		<#include "foot.ftl"/>
 	</body>
+	<script src="${ctx!}/plugin/farmer/js/login.js"></script>
 </html>

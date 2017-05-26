@@ -58,4 +58,14 @@ public class UserServiceImpl implements UserService {
 		throw new BusinessException("用户名或密码错误!");
 	}
 
+	@Override
+	public User findUserByUserName(String userName) {
+		List<User> list=userRepository.findByUserName(userName);
+		if(list!=null&&list.size()==1){
+			return list.get(0);
+		}else{
+			return null;
+		}
+	}
+
 }

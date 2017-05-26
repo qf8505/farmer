@@ -9,4 +9,6 @@ public interface UserService{
 	User findUser(long id);
 	
 	User login(String userName,String passWord);
+
+	User findUserByUserName(String userName);
 }

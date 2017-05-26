@@ -1,0 +1,3 @@
+$(function() {
+	$("#confirmationForm").submit();
+});

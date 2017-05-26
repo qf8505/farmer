@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.qf.farmer.ui.client.UserEsClient.HystrixClientFallback;
 import com.qf.farmer.ui.domain.User;
 
-@FeignClient(name = "farmer-es-service",fallback = HystrixClientFallback.class)
+//@FeignClient(name = "farmer-es-service",fallback = HystrixClientFallback.class)
+@FeignClient(name = "farmer-es-service")
 public interface UserEsClient {
 	
   @RequestMapping(value="/findUser",method=RequestMethod.GET)

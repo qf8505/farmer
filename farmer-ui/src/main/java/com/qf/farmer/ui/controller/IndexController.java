@@ -1,5 +1,7 @@
 package com.qf.farmer.ui.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,7 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value = "mall", method = RequestMethod.GET)
-	public String findUser(){
+	public String mall(Principal user,HttpServletRequest request){
 		return "mall/mall";
 	}
 	/**

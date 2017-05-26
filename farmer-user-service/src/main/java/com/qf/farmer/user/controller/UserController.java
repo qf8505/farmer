@@ -60,6 +60,11 @@ public class UserController {
 		return userService.login(user.getsUserName(),user.getPassWord());
 	}
 
+	@PostMapping("/findUserByUserName")
+	public User findUserByUserName(@RequestBody String userName) {
+		return userService.findUserByUserName(userName);
+	}
+	
 	/**
 	 * 本地服务实例的信息
 	 * 

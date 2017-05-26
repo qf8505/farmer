@@ -32,6 +32,7 @@
 		<module>farmer-common</module>
 		<module>farmer-store-service</module>
 		<module>farmer-oauth</module>
+		<module>farmer-resource-server</module>
 	</modules>
 	<!-- 使用最新的spring-boot版本 -->
 	<parent>
@@ -73,6 +74,11 @@
 			<groupId>com.qf.farmer</groupId>
 			<artifactId>farmer-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.8</version>
 		</dependency>
 	</dependencies>
 

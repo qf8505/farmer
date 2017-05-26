@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoT
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -26,8 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CompositeFilter;
 
+@Configuration
 @EnableOAuth2Sso
-@RestController
 @EnableAutoConfiguration
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
@@ -53,7 +54,6 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 		List<Filter> filters = new ArrayList<>();
 		filters.add(ssoFilter(facebook(), "/login/facebook"));
 		filters.add(ssoFilter(github(), "/login/github"));
-		filters.add(ssoFilter(farmer(), "/login/farmer"));
 		filters.add(ssoFilter(weibo(), "/login/weibo"));
 		filter.setFilters(filters);
 		return filter;
@@ -75,17 +75,6 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 	@ConfigurationProperties("weibo")
 	public ClientResources weibo() {
 		return new ClientResources();
-	}
-	
-	@Bean
-	@ConfigurationProperties("farmer")
-	public ClientResources farmer() {
-		return new ClientResources();
-	}
-	
-	@RequestMapping("/user")
-	public Principal user(Principal user) {
-		return user;
 	}
 	
 	private Filter ssoFilter(ClientResources client, String path) {

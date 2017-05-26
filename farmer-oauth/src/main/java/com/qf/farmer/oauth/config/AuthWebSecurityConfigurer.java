@@ -8,6 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.qf.farmer.oauth.service.CustomUserDetailsService;
 
 @Configuration
+@Order(-20)
 public class AuthWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -36,9 +38,14 @@ public class AuthWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 		auth.parentAuthenticationManager(authenticationManager).userDetailsService(customUserDetailsService)
 				.passwordEncoder(passwordEncoder());
 	}
+	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/plugin/**");
+	}
 
 	/**
-	 * 设置用户密码的加密方式为MD5加密
+	 * 设置用户密码的加密方式
 	 * 
 	 * @return
 	 */

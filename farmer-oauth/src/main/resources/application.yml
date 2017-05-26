@@ -1,6 +1,20 @@
 server:
   port: 9999
   contextPath: /auth
+
+eureka:
+  instance:
+    hostname: eureka         # 指定该Eureka实例的主机名
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+
+ribbon:
+  eureka:
+    enabled: true
+
 security:
   user:
     password: qinfei
@@ -11,16 +25,13 @@ security:
       scope: read,write
       auto-approve-scopes: '.*'
 spring:
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
   datasource:  
-    url: jdbc:mysql://172.31.7.1:3306/test
-    username: hive
-    password: hive
-    platform: mysql
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    platform: ${spring.datasource.platform}
+    driver-class-name: ${spring.datasource.driver}
+  
 
 logging:
   level:

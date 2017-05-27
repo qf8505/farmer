@@ -1,5 +1,8 @@
 package com.qf.farmer.ui.service.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +32,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(User user) {
 		return userDbClient.login(user);
+	}
+
+	@Override
+	public User findUserBySUserName(String userName, String clientId) {
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("userName", userName);
+		map.put("clientId", clientId);
+		return userDbClient.findUserBySUserName(map);
 	}
 
 }

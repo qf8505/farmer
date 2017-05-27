@@ -1,5 +1,7 @@
 package com.qf.farmer.ui.client;
 
+import java.util.Map;
+
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,4 +37,12 @@ public interface UserDbClient {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
 	public User login(@RequestBody User user);
+	/**
+	 * 根据第三方登录账号查找对应用户
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping(value = "/findUserBySUserName", method = RequestMethod.POST)
+	@ResponseBody
+	public User findUserBySUserName(@RequestBody Map<String, String> map);
 }

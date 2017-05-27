@@ -1,9 +1,11 @@
 package com.qf.farmer.user.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.qf.farmer.common.exception.BusinessException;
@@ -17,6 +19,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Value(value = "farmer.clientid")
+	private String farmerClientId;
 	
 	@Override
 	public User saveUser(User user) {
@@ -61,6 +66,24 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findUserByUserName(String userName) {
 		List<User> list=userRepository.findByUserName(userName);
+		if(list!=null&&list.size()==1){
+			return list.get(0);
+		}else{
+			return null;
+		}
+	}
+
+	@Override
+	public User findUserBySUserName(String userName,String clientId) {
+		List<User> list=null;
+		if(StringUtils.isBlank(clientId)){
+			clientId=farmerClientId;
+			list=userRepository.findBySUserNameAndSource(userName,clientId);
+		}else if(farmerClientId.equals(clientId)){
+			list=userRepository.findByUserName(userName);
+		}else{
+			list=userRepository.findBySUserNameAndSource(userName,clientId);
+		}
 		if(list!=null&&list.size()==1){
 			return list.get(0);
 		}else{

@@ -1,6 +1,7 @@
 package com.qf.farmer.user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,11 @@ public class UserController {
 	@PostMapping("/findUserByUserName")
 	public User findUserByUserName(@RequestBody String userName) {
 		return userService.findUserByUserName(userName);
+	}
+	
+	@PostMapping("/findUserBySUserName")
+	public User findUserBySUserName(@RequestBody Map<String,String> map){
+		return userService.findUserBySUserName(map.get("userName"),map.get("clientId"));
 	}
 	
 	/**

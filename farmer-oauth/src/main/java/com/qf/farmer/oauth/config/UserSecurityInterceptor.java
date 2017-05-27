@@ -23,7 +23,7 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		modelAndView.addObject("uipath", "http://localhost:8080");
+		modelAndView.addObject("uipath", uipath);
 	}
 
 	@Override

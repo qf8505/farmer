@@ -21,9 +21,4 @@ public class UserController {
 		map.put("name", principal.getName());
 		return map;
 	}
-
-	@RequestMapping("/hello")
-	public String Hello() {
-		return "hello word!";
-	}
 }

@@ -1,1 +1,3 @@
-insert  into `user`(`id`,`user_name`,`pass_word`,`email`,`phone`,`source`,`s_user_name`,`user_type`,`add_ress`,`age`,`sex`) values (1,'qf@qq.com','$2a$10$qeQMPLRqyzbJi03jfRNLmuMkAs5djXg2XdYEkXd8CQp3OEQ6VRcTO','qf@qq.com','15010390293','farmer',NULL,NULL,NULL,32,0);
+insert  into `user`(`id`,`user_name`,`pass_word`,`email`,`phone`,`source`,`s_user_name`,`user_type`,`add_ress`,`age`,`sex`) values (1,'qf@qq.com','$2a$10$qeQMPLRqyzbJi03jfRNLmuMkAs5djXg2XdYEkXd8CQp3OEQ6VRcTO','qf@qq.com','15010390293','farmer','qf@qq.com',NULL,NULL,32,0);
+
+insert into `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) values('farmer',NULL,'qf','openid','authorization_code','http://localhost:8080',NULL,NULL,NULL,NULL,NULL);

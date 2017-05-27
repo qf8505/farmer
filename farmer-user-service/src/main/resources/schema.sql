@@ -1,2 +1,114 @@
 drop table  if exists user;
-create table user (id bigint NOT NULL auto_increment, user_name varchar(50),pass_word varchar(50),email varchar(100),phone varchar(20),source varchar(10),s_user_name varchar(100),user_type varchar(50),add_ress varchar(100), age int default 0,sex int default 0, primary key (id));
+create table user (id bigint NOT NULL auto_increment, user_name varchar(100),pass_word varchar(200),email varchar(100),phone varchar(20),source varchar(100),s_user_name varchar(100),user_type varchar(50),add_ress varchar(100), age int default 0,sex int default 0, primary key (id));
+
+
+drop table  if exists clientdetails;
+drop table  if exists oauth_access_token;
+drop table  if exists oauth_approvals;
+drop table  if exists oauth_client_details;
+drop table  if exists oauth_client_token;
+drop table  if exists oauth_code;
+drop table  if exists oauth_refresh_token;
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`clientdetails`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clientdetails` (
+  `appId` VARCHAR(128) NOT NULL,
+  `resourceIds` VARCHAR(256) NULL DEFAULT NULL,
+  `appSecret` VARCHAR(256) NULL DEFAULT NULL,
+  `scope` VARCHAR(256) NULL DEFAULT NULL,
+  `grantTypes` VARCHAR(256) NULL DEFAULT NULL,
+  `redirectUrl` VARCHAR(256) NULL DEFAULT NULL,
+  `authorities` VARCHAR(256) NULL DEFAULT NULL,
+  `access_token_validity` INT(11) NULL DEFAULT NULL,
+  `refresh_token_validity` INT(11) NULL DEFAULT NULL,
+  `additionalInformation` VARCHAR(4096) NULL DEFAULT NULL,
+  `autoApproveScopes` VARCHAR(256) NULL DEFAULT NULL,
+  PRIMARY KEY (`appId`))
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_access_token`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_access_token` (
+  `token_id` VARCHAR(256) NULL DEFAULT NULL,
+  `token` BLOB NULL DEFAULT NULL,
+  `authentication_id` VARCHAR(128) NOT NULL,
+  `user_name` VARCHAR(256) NULL DEFAULT NULL,
+  `client_id` VARCHAR(256) NULL DEFAULT NULL,
+  `authentication` BLOB NULL DEFAULT NULL,
+  `refresh_token` VARCHAR(256) NULL DEFAULT NULL,
+  PRIMARY KEY (`authentication_id`))
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_approvals`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_approvals` (
+  `userId` VARCHAR(256) NULL DEFAULT NULL,
+  `clientId` VARCHAR(256) NULL DEFAULT NULL,
+  `scope` VARCHAR(256) NULL DEFAULT NULL,
+  `status` VARCHAR(10) NULL DEFAULT NULL,
+  `expiresAt` DATETIME NULL DEFAULT NULL,
+  `lastModifiedAt` DATETIME NULL DEFAULT NULL)
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_client_details`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_client_details` (
+  `client_id` VARCHAR(128) NOT NULL,
+  `resource_ids` VARCHAR(256) NULL DEFAULT NULL,
+  `client_secret` VARCHAR(256) NULL DEFAULT NULL,
+  `scope` VARCHAR(256) NULL DEFAULT NULL,
+  `authorized_grant_types` VARCHAR(256) NULL DEFAULT NULL,
+  `web_server_redirect_uri` VARCHAR(256) NULL DEFAULT NULL,
+  `authorities` VARCHAR(256) NULL DEFAULT NULL,
+  `access_token_validity` INT(11) NULL DEFAULT NULL,
+  `refresh_token_validity` INT(11) NULL DEFAULT NULL,
+  `additional_information` VARCHAR(4096) NULL DEFAULT NULL,
+  `autoapprove` VARCHAR(256) NULL DEFAULT NULL,
+  PRIMARY KEY (`client_id`))
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_client_token`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_client_token` (
+  `token_id` VARCHAR(256) NULL DEFAULT NULL,
+  `token` BLOB NULL DEFAULT NULL,
+  `authentication_id` VARCHAR(128) NOT NULL,
+  `user_name` VARCHAR(256) NULL DEFAULT NULL,
+  `client_id` VARCHAR(256) NULL DEFAULT NULL,
+  PRIMARY KEY (`authentication_id`))
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_code`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_code` (
+  `code` VARCHAR(256) NULL DEFAULT NULL,
+  `authentication` BLOB NULL DEFAULT NULL)
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `alan-oauth`.`oauth_refresh_token`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `oauth_refresh_token` (
+  `token_id` VARCHAR(256) NULL DEFAULT NULL,
+  `token` BLOB NULL DEFAULT NULL,
+  `authentication` BLOB NULL DEFAULT NULL)
+ENGINE = INNODB
+DEFAULT CHARACTER SET = utf8;

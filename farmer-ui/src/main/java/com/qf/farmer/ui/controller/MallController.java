@@ -20,30 +20,6 @@ public class MallController {
 	
 	@RequestMapping("/")
     public String index(Principal user,HttpServletRequest request) {
-		if(user!=null){
-			try{
-				User u=(User) request.getSession().getAttribute("user");
-				if(u==null){
-					String clientId=null;
-					if(user instanceof OAuth2Authentication){
-						OAuth2Authentication ou=(OAuth2Authentication) user;
-						clientId=ou.getOAuth2Request().getClientId();
-					}
-					u=userService.findUserBySUserName(user.getName(),clientId);
-					if(u==null){
-						u=new User();
-						u.setUserName(user.getName());
-					}
-					request.getSession().setAttribute("user", u);
-				}
-//				if(!u.getUserName().equals(user.getName())){
-//					u.setUserName(user.getName());
-//					request.getSession().setAttribute("user", u);
-//				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
         return "forward:/index/mall";
     }
 }

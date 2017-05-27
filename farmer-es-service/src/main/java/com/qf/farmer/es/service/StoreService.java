@@ -3,6 +3,7 @@ package com.qf.farmer.es.service;
 import org.springframework.data.domain.Page;
 
 import com.qf.farmer.es.domain.Store;
+import com.qf.farmer.es.vo.StoreVo;
 
 /**
  * 店铺搜索
@@ -16,11 +17,11 @@ public interface StoreService {
 	 * @param store
 	 * @return
 	 */
-	Page<Store> findStorePage(Store store);
+	Page<Store> findStorePage(StoreVo storeVo);
 	/**
 	 * 新增店铺
 	 * @param store
 	 * @return
 	 */
-	Store saveStore(Store store);
+	Store saveStore(StoreVo storeVo);
 }

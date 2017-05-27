@@ -4,12 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qf.farmer.es.domain.Store;
 import com.qf.farmer.es.service.StoreService;
+import com.qf.farmer.es.vo.StoreVo;
 
 @RestController
 public class StoreController{
@@ -23,10 +25,15 @@ public class StoreController{
      * @param store
      * @return
      */
-    @RequestMapping(value = "findStorePage", method = RequestMethod.GET)
-    public Page<Store> findStorePage(Store store){
-    	LOG.debug(store.getStoreName());
-        return storeService.findStorePage(store);
+    @RequestMapping(value = "findStorePage", method = RequestMethod.POST)
+    public Page<Store> findStorePage(@RequestBody StoreVo storeVo){
+        return storeService.findStorePage(storeVo);
+    }
+    
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public Page<Store> list(StoreVo storeVo){
+    	LOG.debug(storeVo.getStoreName());
+        return storeService.findStorePage(storeVo);
     }
     
     /**
@@ -35,7 +42,7 @@ public class StoreController{
      * @return
      */
     @RequestMapping(value = "saveStore", method = RequestMethod.POST)
-    public Page<Store> saveStore(Store store){
-        return storeService.findStorePage(store);
+    public Store saveStore(@RequestBody StoreVo storeVo){
+        return storeService.saveStore(storeVo);
     }
 }

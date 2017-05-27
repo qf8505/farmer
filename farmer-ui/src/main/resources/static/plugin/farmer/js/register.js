@@ -1,6 +1,6 @@
 $(function() {
 	$("#submitEmail").click(function(){
-		$("#emailform").attr("action","/user/register");
+		$("#emailform").attr("action","/index/register");
 		$("#emailform").submit();
 	});
 });

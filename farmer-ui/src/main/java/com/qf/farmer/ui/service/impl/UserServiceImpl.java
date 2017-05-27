@@ -11,7 +11,7 @@ import com.qf.farmer.ui.client.UserEsClient;
 import com.qf.farmer.ui.domain.User;
 import com.qf.farmer.ui.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

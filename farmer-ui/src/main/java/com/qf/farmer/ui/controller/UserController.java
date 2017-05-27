@@ -33,31 +33,6 @@ public class UserController {
 		return userService.findUser(userId);
 	}
 	/**
-	 * 用户注册
-	 * @param user
-	 * @param passWordRepeat
-	 * @return
-	 */
-	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public ModelAndView register(User user,String passWordRepeat){
-		ModelAndView model=null;
-		if(user.getPassWord().equals(passWordRepeat)){
-			try{
-				user.setUserType(UserTypeEnum.USER.getValue());
-				userService.register(user);
-			}catch(Exception e){
-				model=new ModelAndView("mall/register");
-				model.addObject("msg", CommonUtil.checkException(e));
-				return model;  
-			}
-		}else{
-			model=new ModelAndView("mall/register");
-			model.addObject("msg", "两次输入的密码不一致");
-			return model;  
-		}
-		return new ModelAndView("mall/regSuccess");
-	}
-	/**
 	 * 用户登录
 	 * @param userName
 	 * @param passWord
@@ -84,12 +59,6 @@ public class UserController {
 	 */
 	@RequestMapping(value = "userInfo", method = RequestMethod.GET)
 	public ModelAndView userInfo(HttpServletRequest request){
-		Object obj=request.getSession().getAttribute("user");
-		if(obj!=null){
-			new ModelAndView("mall/userInfo");
-		}else{
-			new ModelAndView("redirect:/index/login");
-		}
-		return null;
+		return new ModelAndView("mall/userInfo");
 	}
 }

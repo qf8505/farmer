@@ -6,15 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>首页</title>
+		<#assign ctx="${springMacroRequestContext.contextPath}">
+		<link href="${ctx}/plugin/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="${ctx}/plugin/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
 
-		<link href="../plugin/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="../plugin/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+		<link href="${ctx}/plugin/basic/css/demo.css" rel="stylesheet" type="text/css" />
 
-		<link href="../plugin/basic/css/demo.css" rel="stylesheet" type="text/css" />
-
-		<link href="../plugin/farmer/css/hmstyle.css" rel="stylesheet" type="text/css" />
-		<script src="../plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link href="${ctx}/plugin/farmer/css/hmstyle.css" rel="stylesheet" type="text/css" />
+		<script src="${ctx}/plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="${ctx}/plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 	</head>
 
@@ -23,15 +23,15 @@
 			<#include "head.ftl"/>
 			<!--悬浮搜索框-->
 				<div class="nav white">
-					<div class="logo"><img src="../plugin/farmer/images/logo.png" /></div>
+					<div class="logo"><img src="${ctx}/plugin/farmer/images/logo.png" /></div>
 					<div class="logoBig">
-						<li><img src="../plugin/farmer/images/logobig.png" /></li>
+						<li><img src="${ctx}/plugin/farmer/images/logobig.png" /></li>
 					</div>
 
 					<div class="search-bar pr">
 						<a name="index_none_header_sysc" href="#"></a>
-						<form>
-							<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
+						<form action="${ctx}/search/goods">
+							<input id="searchInput" name="kw" type="text" placeholder="搜索" autocomplete="off">
         					<input id="ai-topsearch" class="submit" value="搜索" index="1" type="submit"></form>
 						</form>
 					</div>
@@ -61,10 +61,10 @@
                       <!--轮播 -->
 						<div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
 							<ul class="am-slides">
-								<li class="banner1"><a href="introduction.html"><img src="../plugin/farmer/images/ad5.jpg" /></a></li>
-								<li class="banner2"><a><img src="../plugin/farmer/images/ad6.jpg" /></a></li>
-								<li class="banner3"><a><img src="../plugin/farmer/images/ad7.jpg" /></a></li>
-								<li class="banner4"><a><img src="../plugin/farmer/images/ad8.jpg" /></a></li>
+								<li class="banner1"><a href="introduction.html"><img src="${ctx}/plugin/farmer/images/ad5.jpg" /></a></li>
+								<li class="banner2"><a><img src="${ctx}/plugin/farmer/images/ad6.jpg" /></a></li>
+								<li class="banner3"><a><img src="${ctx}/plugin/farmer/images/ad7.jpg" /></a></li>
+								<li class="banner4"><a><img src="${ctx}/plugin/farmer/images/ad8.jpg" /></a></li>
 							</ul>
 						</div>
 						<div class="clear"></div>	
@@ -79,7 +79,7 @@
 										<ul class="category-list navTwo" id="js_climit_li">
 											<li>
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/cake.png"></i><a class="ml-22" title="点心">点心/蛋糕</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/cake.png"></i><a class="ml-22" title="点心">点心/蛋糕</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -130,7 +130,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -190,7 +190,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -243,7 +243,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -293,7 +293,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -345,7 +345,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -395,7 +395,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -447,7 +447,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/fish.png"></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/fish.png"></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -505,7 +505,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/tea.png"></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/tea.png"></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -554,7 +554,7 @@
 											</li>
 											<li>
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -604,7 +604,7 @@
                                  <!--比较多的导航	-->										
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -664,7 +664,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -717,7 +717,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -767,7 +767,7 @@
 											</li>
 											<li>
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -819,7 +819,7 @@
 											</li>											
 															<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -869,7 +869,7 @@
 											</li>
 											<li >
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../plugin/farmer/images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${ctx}/plugin/farmer/images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -948,22 +948,22 @@
 					<!--小导航 -->
 					<div class="am-g am-g-fixed smallnav">
 						<div class="am-u-sm-3">
-							<a href="sort.html"><img src="../plugin/farmer/images/navsmall.jpg" />
+							<a href="sort.html"><img src="${ctx}/plugin/farmer/images/navsmall.jpg" />
 								<div class="title">商品分类</div>
 							</a>
 						</div>
 						<div class="am-u-sm-3">
-							<a href="#"><img src="../plugin/farmer/images/huismall.jpg" />
+							<a href="#"><img src="${ctx}/plugin/farmer/images/huismall.jpg" />
 								<div class="title">大聚惠</div>
 							</a>
 						</div>
 						<div class="am-u-sm-3">
-							<a href="#"><img src="../plugin/farmer/images/mansmall.jpg" />
+							<a href="#"><img src="${ctx}/plugin/farmer/images/mansmall.jpg" />
 								<div class="title">个人中心</div>
 							</a>
 						</div>
 						<div class="am-u-sm-3">
-							<a href="#"><img src="../plugin/farmer/images/moneysmall.jpg" />
+							<a href="#"><img src="${ctx}/plugin/farmer/images/moneysmall.jpg" />
 								<div class="title">投资理财</div>
 							</a>
 						</div>
@@ -972,10 +972,10 @@
 					
 				<!--各类活动-->
 				<div class="row">
-					<li><a><img src="../plugin/farmer/images/row1.jpg"/></a></li>
-					<li><a><img src="../plugin/farmer/images/row2.jpg"/></a></li>
-					<li><a><img src="../plugin/farmer/images/row3.jpg"/></a></li>
-					<li><a><img src="../plugin/farmer/images/row4.jpg"/></a></li>
+					<li><a><img src="${ctx}/plugin/farmer/images/row1.jpg"/></a></li>
+					<li><a><img src="${ctx}/plugin/farmer/images/row2.jpg"/></a></li>
+					<li><a><img src="${ctx}/plugin/farmer/images/row3.jpg"/></a></li>
+					<li><a><img src="${ctx}/plugin/farmer/images/row4.jpg"/></a></li>
 				</div>
 				<div class="clear"></div>	
 					<!--走马灯 -->
@@ -986,12 +986,12 @@
 
 							<ul>
 								<li class="title-first"><a target="_blank" href="#">
-									<img src="../plugin/farmer/images/TJ2.jpg"></img>
+									<img src="${ctx}/plugin/farmer/images/TJ2.jpg"></img>
 									<span>[特惠]</span>洋河年末大促，低至两件五折							
 								</a></li>
 								<li class="title-first"><a target="_blank" href="#">
 									<span>[公告]</span>商城与广州市签署战略合作协议
-								     <img src="../plugin/farmer/images/TJ.jpg"></img>
+								     <img src="${ctx}/plugin/farmer/images/TJ.jpg"></img>
 								     <p>XXXXXXXXXXXXXXXXXX</p>
 							    </a></li>																    							    
 								<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒	</a></li>
@@ -1048,7 +1048,7 @@
 					  <div class="am-g am-g-fixed sale">
 						<div class="am-u-sm-3 sale-item">
 							<div class="s-img">
-								<a href="# "><img src="../plugin/farmer/images/sale3.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/sale3.jpg" /></a>
 							</div>
                            <div class="s-info">
                            	   <a href="#"><p class="s-title">ZEK 原味海苔</p></a>
@@ -1060,7 +1060,7 @@
 						
 						<div class="am-u-sm-3 sale-item">
 							<div class="s-img">
-								<a href="# "><img src="../plugin/farmer/images/sale2.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/sale2.jpg" /></a>
 							</div>
                            <div class="s-info">
                            	   <a href="#"><p class="s-title">ZEK 原味海苔</p></a>
@@ -1072,7 +1072,7 @@
 						
 						<div class="am-u-sm-3 sale-item">
 							<div class="s-img">
-								<a href="# "><img src="../plugin/farmer/images/sale1.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/sale1.jpg" /></a>
 							</div>
                            <div class="s-info">
                            	   <a href="#"><p class="s-title">ZEK 原味海苔</p></a>
@@ -1084,7 +1084,7 @@
 						
 						<div class="am-u-sm-3 sale-item">
 							<div class="s-img">
-								<a href="# "><img src="../plugin/farmer/images/sale2.jpg " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/sale2.jpg " /></a>
 							</div>
                            <div class="s-info">
                            	   <a href="#"><p class="s-title">ZEK 原味海苔</p></a>
@@ -1130,7 +1130,7 @@
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>								
 							</div>							
 							<a href="# ">
-								<img src="../plugin/farmer/images/5.jpg" />
+								<img src="${ctx}/plugin/farmer/images/5.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -1154,7 +1154,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act1.png" /></a>						
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act1.png" /></a>						
 						</div>
 
 						<li>
@@ -1169,7 +1169,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/1.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/1.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1184,7 +1184,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/2.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/2.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1199,7 +1199,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/5.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/5.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1214,7 +1214,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/3.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/3.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1229,7 +1229,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/4.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/4.jpg" /></a>
 						</div>	
 						</li>						
 					</div>
@@ -1275,7 +1275,7 @@
 										零食大礼包
 									</div>									
 								</div>
-                                  <img src="../plugin/farmer/images/11.jpg" />								
+                                  <img src="${ctx}/plugin/farmer/images/11.jpg" />								
 							</a>
 							<div class="triangle-topright"></div>						
 						</div>
@@ -1291,7 +1291,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act2.png " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act2.png " /></a>
 								
 							</div>
                         
@@ -1307,7 +1307,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/6.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/6.jpg" /></a>
 							</div>
                         </li>
                         <li>
@@ -1322,7 +1322,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/7.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/7.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1337,7 +1337,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/10.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/10.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1352,7 +1352,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/8.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/8.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1367,7 +1367,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/9.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/9.jpg" /></a>
 						</div>
 						</li>
 					</div>
@@ -1408,7 +1408,7 @@
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>								
 							</div>							
 							<a href="# ">
-								<img src="../plugin/farmer/images/5.jpg" />
+								<img src="${ctx}/plugin/farmer/images/5.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -1432,7 +1432,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act1.png" /></a>						
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act1.png" /></a>						
 						</div>
 
 						<li>
@@ -1447,7 +1447,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/1.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/1.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1462,7 +1462,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/2.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/2.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1477,7 +1477,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/5.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/5.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1492,7 +1492,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/3.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/3.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1507,7 +1507,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/4.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/4.jpg" /></a>
 						</div>	
 						</li>						
 					</div>
@@ -1552,7 +1552,7 @@
 										零食大礼包
 									</div>									
 								</div>
-                                  <img src="../plugin/farmer/images/11.jpg" />								
+                                  <img src="${ctx}/plugin/farmer/images/11.jpg" />								
 							</a>
 							<div class="triangle-topright"></div>						
 						</div>
@@ -1568,7 +1568,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act2.png " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act2.png " /></a>
 								
 							</div>
                         
@@ -1584,7 +1584,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/6.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/6.jpg" /></a>
 							</div>
                         </li>
                         <li>
@@ -1599,7 +1599,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/7.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/7.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1614,7 +1614,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/10.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/10.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1629,7 +1629,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/8.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/8.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1644,7 +1644,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/9.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/9.jpg" /></a>
 						</div>
 						</li>
 					</div>
@@ -1685,7 +1685,7 @@
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>								
 							</div>							
 							<a href="# ">
-								<img src="../plugin/farmer/images/5.jpg" />
+								<img src="${ctx}/plugin/farmer/images/5.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -1709,7 +1709,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act1.png" /></a>						
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act1.png" /></a>						
 						</div>
 
 						<li>
@@ -1724,7 +1724,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/1.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/1.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1739,7 +1739,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/2.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/2.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -1754,7 +1754,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/5.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/5.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1769,7 +1769,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/3.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/3.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -1784,7 +1784,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/4.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/4.jpg" /></a>
 						</div>	
 						</li>						
 					</div>
@@ -1829,7 +1829,7 @@
 										零食大礼包
 									</div>									
 								</div>
-                                  <img src="../plugin/farmer/images/11.jpg" />								
+                                  <img src="${ctx}/plugin/farmer/images/11.jpg" />								
 							</a>
 							<div class="triangle-topright"></div>						
 						</div>
@@ -1845,7 +1845,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act2.png " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act2.png " /></a>
 								
 							</div>
                         
@@ -1861,7 +1861,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/6.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/6.jpg" /></a>
 							</div>
                         </li>
                         <li>
@@ -1876,7 +1876,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/7.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/7.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1891,7 +1891,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/10.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/10.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1906,7 +1906,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/8.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/8.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -1921,7 +1921,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/9.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/9.jpg" /></a>
 						</div>
 						</li>
 					</div>
@@ -1965,7 +1965,7 @@
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>								
 							</div>							
 							<a href="# ">
-								<img src="../plugin/farmer/images/5.jpg" />
+								<img src="${ctx}/plugin/farmer/images/5.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -1989,7 +1989,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act1.png" /></a>						
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act1.png" /></a>						
 						</div>
 
 						<li>
@@ -2004,7 +2004,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/1.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/1.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -2019,7 +2019,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/2.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/2.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -2034,7 +2034,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/5.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/5.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -2049,7 +2049,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/3.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/3.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -2064,7 +2064,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/4.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/4.jpg" /></a>
 						</div>	
 						</li>						
 					</div>
@@ -2109,7 +2109,7 @@
 										零食大礼包
 									</div>									
 								</div>
-                                  <img src="../plugin/farmer/images/11.jpg" />								
+                                  <img src="${ctx}/plugin/farmer/images/11.jpg" />								
 							</a>
 							<div class="triangle-topright"></div>						
 						</div>
@@ -2125,7 +2125,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act2.png " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act2.png " /></a>
 								
 							</div>
                         
@@ -2141,7 +2141,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/6.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/6.jpg" /></a>
 							</div>
                         </li>
                         <li>
@@ -2156,7 +2156,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/7.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/7.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2171,7 +2171,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/10.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/10.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2186,7 +2186,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/8.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/8.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2201,7 +2201,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/9.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/9.jpg" /></a>
 						</div>
 						</li>
 					</div>
@@ -2242,7 +2242,7 @@
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>								
 							</div>							
 							<a href="# ">
-								<img src="../plugin/farmer/images/5.jpg" />
+								<img src="${ctx}/plugin/farmer/images/5.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -2266,7 +2266,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act1.png" /></a>						
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act1.png" /></a>						
 						</div>
 
 						<li>
@@ -2281,7 +2281,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/1.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/1.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -2296,7 +2296,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/2.jpg " /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/2.jpg " /></a>
 						</div>
 						</li>
 						<li>
@@ -2311,7 +2311,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/5.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/5.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -2326,7 +2326,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/3.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/3.jpg" /></a>
 						</div>	
 						</li>
 						<li>
@@ -2341,7 +2341,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/4.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/4.jpg" /></a>
 						</div>	
 						</li>						
 					</div>
@@ -2383,7 +2383,7 @@
 										零食大礼包
 									</div>									
 								</div>
-                                  <img src="../plugin/farmer/images/11.jpg" />								
+                                  <img src="${ctx}/plugin/farmer/images/11.jpg" />								
 							</a>
 							<div class="triangle-topright"></div>						
 						</div>
@@ -2399,7 +2399,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/act2.png " /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/act2.png " /></a>
 								
 							</div>
                         
@@ -2415,7 +2415,7 @@
 									</div>
 									
 								</div>
-								<a href="# "><img src="../plugin/farmer/images/6.jpg" /></a>
+								<a href="# "><img src="${ctx}/plugin/farmer/images/6.jpg" /></a>
 							</div>
                         </li>
                         <li>
@@ -2430,7 +2430,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/7.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/7.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2445,7 +2445,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/10.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/10.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2460,7 +2460,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/8.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/8.jpg" /></a>
 						</div>
                         </li>
                         <li>
@@ -2475,7 +2475,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../plugin/farmer/images/9.jpg" /></a>
+							<a href="# "><img src="${ctx}/plugin/farmer/images/9.jpg" /></a>
 						</div>
 						</li>
 					</div>
@@ -2493,8 +2493,8 @@
 		<div class="navCir">
 			<li class="active"><a href="home2.html"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li><a href="../plugin/person/index.html"><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href="${ctx}/index/shopcar"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
+			<li><a href="${ctx}/plugin/person/index.html"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
 		<!--菜单 -->
 		<div class=tip>
@@ -2506,7 +2506,7 @@
 						</a>
 						<div class="ibar_login_box status_login ">
 							<div class="avatar_box ">
-								<p class="avatar_imgbox "><img src="../plugin/farmer/images/no-img_mid_.jpg " /></p>
+								<p class="avatar_imgbox "><img src="${ctx}/plugin/farmer/images/no-img_mid_.jpg " /></p>
 								<ul class="user_info ">
 									<li>用户名：sl1903</li>
 									<li>级&nbsp;别：普通会员</li>
@@ -2521,7 +2521,7 @@
 
 					</div>
 					<div id="shopCart " class="item ">
-						<a href="# ">
+						<a href="${ctx}/index/shopcar ">
 							<span class="message "></span>
 						</a>
 						<p>
@@ -2551,7 +2551,7 @@
 
 					<div id="brand " class="item ">
 						<a href="#">
-							<span class="wdsc "><img src="../plugin/farmer/images/wdsc.png " /></span>
+							<span class="wdsc "><img src="${ctx}/plugin/farmer/images/wdsc.png " /></span>
 						</a>
 						<div class="mp_tooltip ">
 							我的收藏
@@ -2561,7 +2561,7 @@
 
 					<div id="broadcast " class="item ">
 						<a href="# ">
-							<span class="chongzhi "><img src="../plugin/farmer/images/chongzhi.png " /></span>
+							<span class="chongzhi "><img src="${ctx}/plugin/farmer/images/chongzhi.png " /></span>
 						</a>
 						<div class="mp_tooltip ">
 							我要充值
@@ -2577,7 +2577,7 @@
 						<!--二维码 -->
 						<li class="qtitem ">
 							<a href="#none "><span class="mpbtn_qrcode "></span></a>
-							<div class="mp_qrcode " style="display:none; "><img src="../plugin/farmer/images/weixin_code_145.png " /><i class="icon_arrow_white "></i></div>
+							<div class="mp_qrcode " style="display:none; "><img src="${ctx}/plugin/farmer/images/weixin_code_145.png " /><i class="icon_arrow_white "></i></div>
 						</li>
 						<li class="qtitem ">
 							<a href="#top " class="return_top "><span class="top "></span></a>
@@ -2658,7 +2658,7 @@
 		<script>
 			window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
 		</script>
-		<script type="text/javascript " src="../plugin/basic/js/quick_links.js "></script>
+		<script type="text/javascript " src="${ctx}/plugin/basic/js/quick_links.js "></script>
 	</body>
 
 </html>

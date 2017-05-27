@@ -30,7 +30,12 @@ public class BusinessErrorDecoder extends Default {
 					if(StringUtils.isNotBlank(json.getString("exception"))){
 						Class<?> c=Class.forName(json.getString("exception"));
 						Constructor<?> ct = c.getDeclaredConstructor(String.class);
-						return (BusinessException) ct.newInstance(json.getString("message"));
+						Object obj=ct.newInstance(json.getString("message"));
+						if(obj instanceof BusinessException){
+							return (BusinessException) obj;
+						}else{
+							return super.decode(methodKey, response);
+						}
 					}
 				}else{
 					return super.decode(methodKey, response);

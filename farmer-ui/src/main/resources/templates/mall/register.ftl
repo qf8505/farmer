@@ -4,28 +4,29 @@
 	<head lang="en">
 		<meta charset="UTF-8">
 		<title>注册</title>
+		<#assign ctx="${springMacroRequestContext.contextPath}">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-		<link rel="stylesheet" href="../plugin/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
-		<link href="../plugin/farmer/css/dlstyle.css" rel="stylesheet" type="text/css">
-		<script src="../plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link rel="stylesheet" href="${ctx}/plugin/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
+		<link href="${ctx}/plugin/farmer/css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="${ctx}/plugin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="${ctx}/plugin/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 	</head>
 
 	<body>
 
 		<div class="login-boxtitle">
-			<a href="/index/mall"><img alt="" src="../plugin/farmer/images/logobig.png" /></a>
+			<a href="/index/mall"><img alt="" src="${ctx}/plugin/farmer/images/logobig.png" /></a>
 		</div>
 
 		<div class="res-banner">
 			<div class="res-main">
-				<div class="login-banner-bg"><span></span><img src="../plugin/farmer/images/big.jpg" /></div>
+				<div class="login-banner-bg"><span></span><img src="${ctx}/plugin/farmer/images/big.jpg" /></div>
 				<div class="login-box">
 
 						<div class="am-tabs" id="doc-my-tabs">
@@ -110,5 +111,5 @@
 			
 		<#include "foot.ftl"/>
 	</body>
-<script src="../plugin/farmer/js/register.js"></script>
+<script src="${ctx}/plugin/farmer/js/register.js"></script>
 </html>

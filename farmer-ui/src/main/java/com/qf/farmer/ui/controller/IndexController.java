@@ -37,6 +37,22 @@ public class IndexController {
 		return "mall/register";
 	}
 	/**
+	 * 打开购物车
+	 * @return
+	 */
+	@RequestMapping(value = "shopcar", method = RequestMethod.GET)
+	public String shopcar(){
+		return "mall/shopcar";
+	}
+	/**
+	 * 进入付款页面
+	 * @return
+	 */
+	@RequestMapping(value = "pay", method = RequestMethod.GET)
+	public String pay(){
+		return "mall/pay";
+	}
+	/**
 	 * 退出登录
 	 * @return
 	 */

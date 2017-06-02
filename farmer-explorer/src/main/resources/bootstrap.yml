@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: farmer-explorer
+  cloud:
+    config:
+      uri: http://config-server:8040/
+      profile: dev
+      label: master
+encrypt:
+  failOnError: false

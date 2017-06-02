@@ -1,6 +1,15 @@
 server:
   port: 9090
 
+spring:
+  application:
+    name: farmer-explorer
+  datasource:                           # 指定数据源
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    platform: ${spring.datasource.platform}
+    
 logging:
   level:
     org.springframework.security: DEBUG

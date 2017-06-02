@@ -12,7 +12,16 @@ spring:
     password: ${jpa.datasource.password}
     platform: ${jpa.datasource.platform}                        # 指定数据源类型
     schema: classpath:schema.sql        # 指定h2数据库的建表脚本
-    data: classpath:data.sql            # 指定h2数据库的insert脚本
+  kafka:
+    bootstrap-servers: 172.31.8.1:9092,172.31.8.2:9092,172.31.8.3:9093
+    consumer: 
+      group-id: farmer
+    template:
+      default-topic: farmer-store
+    listener:
+      concurrency: 3
+    producer: 
+      batch-size: 1000
 logging:
   level:
     root: INFO

@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.qf.farmer.common.exception.BusinessException;
 import com.qf.farmer.store.domain.Store;
 import com.qf.farmer.store.repository.StoreRepository;
@@ -16,6 +18,8 @@ public class StoreServiceImpl implements StoreService {
 
 	@Autowired
 	private StoreRepository storeRepository;
+	@Autowired
+    private KafkaTemplate<String,String> kafkaTemplate;
 	
 	@Override
 	public Store saveStore(Store store) {
@@ -28,6 +32,7 @@ public class StoreServiceImpl implements StoreService {
 		}else{
 			throw new BusinessException("没有找到该店铺");
 		}
+		kafkaTemplate.send("farmer-store",JSONObject.toJSONString(store));
 		return storeRepository.save(store);
 	}
 }

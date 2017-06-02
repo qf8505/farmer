@@ -19,8 +19,8 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Override
 	public Store saveStore(Store store) {
-		return esClient.saveStore(store);
-//		return storeDbClient.saveStore(store);
+//		return esClient.saveStore(store);
+		return storeDbClient.saveStore(store);
 	}
 
 	@Override

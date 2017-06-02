@@ -40,6 +40,13 @@ neo4j:
   links:
    - eureka
    - configserver
+oauth:
+  image: qf/farmer-oauth
+  ports:
+     - "9999:9999"
+  links:
+   - eureka
+   - configserver
 ui:
   image: qf/farmer-ui
   ports:
@@ -47,6 +54,7 @@ ui:
   links:
    - eureka
    - configserver
+   - oauth
 webim:
   image: qf/farmer-webim
   ports:

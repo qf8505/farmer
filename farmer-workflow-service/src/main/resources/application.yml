@@ -3,6 +3,16 @@ server:
 spring:
   application:
     name: farmer-workflow-service
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:                           # 指定数据源
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    platform: ${spring.datasource.platform}
 eureka:
   client:
     serviceUrl:

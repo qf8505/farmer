@@ -54,6 +54,14 @@ public class ModelSaveRestResource implements ModelDataJsonConstants {
   @Autowired
   private ObjectMapper objectMapper;
   
+  /**
+   * @RequestBody MultiValueMap<String, String> values 方式无法接收put请求
+   * @param modelId
+   * @param name
+   * @param json_xml
+   * @param svg_xml
+   * @param description
+   */
   @RequestMapping(value="/model/{modelId}/save", method = RequestMethod.PUT)
   @ResponseStatus(value = HttpStatus.OK)
   public void saveModel(@PathVariable String modelId, @RequestParam("name") String name,

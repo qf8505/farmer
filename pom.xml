@@ -35,6 +35,7 @@
 		<module>farmer-resource-server</module>
 		<module>farmer-explorer</module>
 		<module>farmer-storm</module>
+		<module>farmer-spark</module>
 	</modules>
 	<!-- 使用最新的spring-boot版本 -->
 	<parent>

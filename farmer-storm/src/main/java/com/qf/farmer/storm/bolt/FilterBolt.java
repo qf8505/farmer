@@ -1,5 +1,8 @@
 package com.qf.farmer.storm.bolt;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.qf.farmer.storm.util.CommonUtil;
 
 import backtype.storm.topology.BasicOutputCollector;
@@ -17,23 +20,21 @@ import backtype.storm.tuple.Values;
  */
 public class FilterBolt extends BaseBasicBolt {
 
-	/**
-	 * @fieldName serialVersionUID
-	 * @fieldType long
-	 * @Description TODO
-	 */
 	private static final long serialVersionUID = 1611973389057201599L;
+	
+	private static final Logger logger = LoggerFactory.getLogger(FilterBolt.class);
 
 	@Override
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String line=input.getString(0);
-		collector.emit(CommonUtil.DATA_TO_REDIS, new Values(line));
+		logger.info("farmerfilterbolt:"+line);
+		collector.emit(CommonUtil.DATA_TO_ES, new Values(line));
 		collector.emit(CommonUtil.DATA_TO_HDFS, new Values(line));
 	}
 
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declareStream(CommonUtil.DATA_TO_REDIS, new Fields("id"));
+		declarer.declareStream(CommonUtil.DATA_TO_ES, new Fields("id"));
 		declarer.declareStream(CommonUtil.DATA_TO_HDFS, new Fields("id"));
 	}
 

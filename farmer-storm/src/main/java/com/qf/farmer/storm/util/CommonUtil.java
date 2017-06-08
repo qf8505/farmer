@@ -13,6 +13,7 @@ public class CommonUtil {
 	public static final String KEY_TOP="ahisrd";
 	
 	public static final String DATA_TO_REDIS="datatoredis";
+	public static final String DATA_TO_ES="datatoes";
 	public static final String DATA_TO_HDFS="datatohdfs";
 	public static final String REDIS="172.31.10.151";
 	
@@ -23,6 +24,6 @@ public class CommonUtil {
 	public static final String SPORTID="farmer";
 	public static final String ZKLIST="172.31.8.1,172.31.8.2,172.31.8.3";
 	public static final String SPLIT=",";
-	public static final String HDFS="hdfs://172.31.8.1:9000";
+	public static final String HDFS="hdfs://172.31.10.151:9000";
 	public static final String NAME="farmer";
 }

@@ -1,6 +1,8 @@
 package com.qf.farmer.storm.topo;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.storm.hdfs.bolt.HdfsBolt;
 import org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat;
@@ -45,6 +47,7 @@ public class SynDataTopo {
 			SpoutConfig config = new SpoutConfig(hosts, CommonUtil.TOPIC,CommonUtil.ZKROOT , CommonUtil.SPORTID);
 			config.scheme = new SchemeAsMultiScheme(new StringScheme());
 //			config.forceFromStart = true;
+			config.ignoreZkOffsets=true;
 			config.maxOffsetBehind = 10000;
 			config.zkServers = Arrays.asList(CommonUtil.ZKLIST.split(CommonUtil.SPLIT));
 			config.zkPort = 2181;
@@ -54,12 +57,16 @@ public class SynDataTopo {
 			SyncPolicy syncPolicy = new CountSyncPolicy(1000);
 			//设置hdfs文件大小
 			FileRotationPolicy rotationPolicy = new FileSizeRotationPolicy(128.0f, Units.MB);
-			FileNameFormat fileNameFormat = new DefaultFileNameFormat().withPath("/searchHis/").withPrefix("his_").withExtension(".log");
+			FileNameFormat fileNameFormat = new DefaultFileNameFormat().withPath("/farmer/").withPrefix("his_").withExtension(".log");
 			HdfsBolt hdfsBolt = new HdfsBolt().withFsUrl(CommonUtil.HDFS).withFileNameFormat(fileNameFormat)
 					.withRecordFormat(format).withRotationPolicy(rotationPolicy).withSyncPolicy(syncPolicy);
 			//保存到hdfs中
 			builder.setBolt(HdfsBolt.class.getSimpleName(), hdfsBolt, 3).fieldsGrouping(FilterBolt.class.getSimpleName(),CommonUtil.DATA_TO_HDFS, new Fields("id"));
-			builder.setBolt(EsBolt.class.getSimpleName(), new EsBolt("/farmer/store"), 3).fieldsGrouping(FilterBolt.class.getSimpleName(),CommonUtil.DATA_TO_REDIS, new Fields("id"));
+			Map<Object, Object> boltConf = new HashMap<Object, Object>();  
+	        boltConf.put("es.nodes", "172.31.7.1:9200");  
+	        boltConf.put("es.index.auto.create", "true");  
+	        boltConf.put("es.ser.writer.bytes.class", "org.platform.storm.elasticsearch.bolt.StormTupleBytesConverter");
+			builder.setBolt(EsBolt.class.getSimpleName(), new EsBolt("farmer/store",boltConf), 3).fieldsGrouping(FilterBolt.class.getSimpleName(),CommonUtil.DATA_TO_ES, new Fields("id"));
 
 			Config conf = new Config();
 			conf.setDebug(false);

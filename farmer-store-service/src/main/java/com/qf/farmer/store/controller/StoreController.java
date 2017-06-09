@@ -33,6 +33,12 @@ public class StoreController {
 	public Store saveStore(@RequestBody Store store) {
 		return storeService.saveStore(store);
 	}
+	@GetMapping("/test")
+	public void test(){
+		Store store=new Store();
+		store.setStoreName("qftest");
+		storeService.saveStore(store);
+	}
 
 	/**
 	 * 本地服务实例的信息

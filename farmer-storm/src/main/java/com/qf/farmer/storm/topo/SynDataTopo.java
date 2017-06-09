@@ -20,7 +20,6 @@ import com.qf.farmer.storm.bolt.FilterBolt;
 import com.qf.farmer.storm.util.CommonUtil;
 
 import backtype.storm.Config;
-import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
 import backtype.storm.spout.SchemeAsMultiScheme;
 import backtype.storm.topology.TopologyBuilder;

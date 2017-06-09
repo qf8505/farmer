@@ -10,7 +10,7 @@ public class CommonUtil {
 
 	public static final String KEY_JOIN_TYPE="_";
 	public static final String VALUE_JOIN_TYPE="\001";
-	public static final String KEY_TOP="ahisrd";
+	public static final String KEY_TOP="farmer";
 	
 	public static final String DATA_TO_REDIS="datatoredis";
 	public static final String DATA_TO_ES="datatoes";
@@ -19,7 +19,7 @@ public class CommonUtil {
 	
 	public static final String SPOUT="searchHisSpout";
 	public static final String ZKSTR="172.31.8.1:2181,172.31.8.2:2181,172.31.8.3:2181";
-	public static final String TOPIC="farmer-store";
+	public static final String TOPIC="farmer";
 	public static final String ZKROOT="/farmer";
 	public static final String SPORTID="farmer";
 	public static final String ZKLIST="172.31.8.1,172.31.8.2,172.31.8.3";

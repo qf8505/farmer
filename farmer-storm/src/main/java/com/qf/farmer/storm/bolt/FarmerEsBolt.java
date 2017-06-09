@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.elasticsearch.storm.EsBolt;
 
+import backtype.storm.tuple.Tuple;
+
 /**
  * 自定义storm-es-bolt
  * @author qinfei
@@ -16,5 +18,9 @@ public class FarmerEsBolt extends EsBolt {
 	public FarmerEsBolt(String target, Map<Object, Object> boltConf) {
 		super(target, boltConf);
 	}
-
+	
+	@Override
+	public void execute(Tuple input) {
+		super.execute(input);
+	}
 }

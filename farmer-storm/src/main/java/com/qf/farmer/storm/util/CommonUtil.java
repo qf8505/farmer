@@ -25,5 +25,10 @@ public class CommonUtil {
 	public static final String ZKLIST="172.31.8.1,172.31.8.2,172.31.8.3";
 	public static final String SPLIT=",";
 	public static final String HDFS="hdfs://172.31.10.151:9000";
+	public static final String ES="172.31.7.1:9200";
 	public static final String NAME="farmer";
+	
+	public static final String LOCATION="location";
+	public static final String LON="lon";
+	public static final String LAT="lat";
 }

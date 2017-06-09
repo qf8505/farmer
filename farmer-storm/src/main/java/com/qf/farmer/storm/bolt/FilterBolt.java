@@ -3,6 +3,7 @@ package com.qf.farmer.storm.bolt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.alibaba.fastjson.JSONObject;
 import com.qf.farmer.storm.util.CommonUtil;
 
 import backtype.storm.topology.BasicOutputCollector;
@@ -28,8 +29,21 @@ public class FilterBolt extends BaseBasicBolt {
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String line=input.getString(0);
 		logger.info("farmerfilterbolt:"+line);
-		collector.emit(CommonUtil.DATA_TO_ES, new Values(line));
-		collector.emit(CommonUtil.DATA_TO_HDFS, new Values(line));
+		try{
+			JSONObject json=JSONObject.parseObject(line);
+			if(json.get(CommonUtil.LON)!=null&&json.get(CommonUtil.LAT)!=null){
+				JSONObject jb=new JSONObject();
+				jb.put(CommonUtil.LON, json.get(CommonUtil.LON));
+				jb.put(CommonUtil.LAT, json.get(CommonUtil.LAT));
+				json.remove(CommonUtil.LON);
+				json.remove(CommonUtil.LAT);
+				json.put(CommonUtil.LOCATION, jb);
+			}
+			collector.emit(CommonUtil.DATA_TO_ES, new Values(json.toJSONString()));
+			collector.emit(CommonUtil.DATA_TO_HDFS, new Values(line));
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
 	}
 
 	@Override

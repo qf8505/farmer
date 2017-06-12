@@ -26,7 +26,7 @@ public class Recommend implements Serializable {
 			public Goods call(String line) throws Exception {
 				String[] split=line.split("\001",-1);
 				Goods g=new Goods();
-				g.setId(split[0]);
+				g.setSkuid(split[0]);
 				g.setName(split[1]);
 				return g;
 			}

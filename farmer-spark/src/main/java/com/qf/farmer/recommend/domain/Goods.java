@@ -2,15 +2,15 @@ package com.qf.farmer.recommend.domain;
 
 public class Goods {
 
-	private String id;
+	private String skuid;
 	private String name;
 	private String type;
 	
-	public String getId() {
-		return id;
+	public String getSkuid() {
+		return skuid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSkuid(String skuid) {
+		this.skuid = skuid;
 	}
 	public String getName() {
 		return name;

@@ -15,8 +15,8 @@ public class FarmerEsBolt extends EsBolt {
 
 	private static final long serialVersionUID = 1425464917147906083L;
 	
-	public FarmerEsBolt(String target, Map<Object, Object> boltConf) {
-		super(target, boltConf);
+	public FarmerEsBolt(Map<Object, Object> boltConf) {
+		super("farmer/store", boltConf);
 	}
 	
 	@Override

@@ -33,6 +33,9 @@ import storm.kafka.ZkHosts;
 /**
  * @ClassName: 处理业务发送的同步消息,将数据同步到es上
  * @Description: TODO
+ * storm kill -w 5 farmer 
+ * sleep 10 
+ * storm jar farmer-storm-0.0.1-SNAPSHOT.jar com.qf.farmer.storm.topo.SynDataTopo
  * @author: qinfei
  * @date: 2016年7月4日 上午9:52:58
  */
@@ -66,7 +69,7 @@ public class SynDataTopo {
 	        boltConf.put("es.index.auto.create", "true");//自动创建索引
 	        boltConf.put("es.batch.size.entries", 1);//es内部默认缓存为1000，会导致无法将更新实时提交的es服务器
 	        //curl -XDELETE 'http://172.31.7.1:9200/farmer'删除索引
-			builder.setBolt(FarmerEsBolt.class.getSimpleName(), new FarmerEsBolt("farmer/store",boltConf), 3).fieldsGrouping(FilterBolt.class.getSimpleName(),CommonUtil.DATA_TO_ES, new Fields("id"));
+			builder.setBolt(FarmerEsBolt.class.getSimpleName(), new FarmerEsBolt(boltConf), 3).fieldsGrouping(FilterBolt.class.getSimpleName(),CommonUtil.DATA_TO_ES, new Fields("id"));
 
 			Config conf = new Config();
 			conf.setDebug(false);
